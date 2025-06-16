@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:localskillconnect/Screens/FrontScreen/intro1.dart';
+import 'package:localskillconnect/Widgets/buttons.dart';
 
 class SelectLanguage extends StatefulWidget {
   const SelectLanguage({super.key});
@@ -14,7 +16,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 200,
           ),
           Center(
@@ -59,7 +61,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                     side: BorderSide(
-                      color: Colors.grey,
+                      color: Theme.of(context).colorScheme.tertiary,
                       width: 2,
                     ),
                   ),
@@ -67,10 +69,19 @@ class _SelectLanguageState extends State<SelectLanguage> {
                 elevation: const WidgetStatePropertyAll(2),
                 backgroundColor: const WidgetStatePropertyAll(Colors.white),
               ),
-              child: Text('English'),
+              child: const Row(
+                children: [
+                  Text('English'),
+                  SizedBox(width: 5),
+                  Text('(English)',style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey,
+                  ),),
+                ],
+              ),
             ),
           ),
-           SizedBox(
+           const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -88,7 +99,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                     side: BorderSide(
-                      color: Colors.grey,
+                      color: Theme.of(context).colorScheme.tertiary,
                       width: 2,
                     ),
                   ),
@@ -96,10 +107,19 @@ class _SelectLanguageState extends State<SelectLanguage> {
                 elevation: const WidgetStatePropertyAll(2),
                 backgroundColor: const WidgetStatePropertyAll(Colors.white),
               ),
-              child: Text('తెలుగు'),
+              child: const Row(
+                children: [
+                  Text('తెలుగు'),
+                   SizedBox(width: 5),
+                  Text('(Telugu)',style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey,
+                  ),),
+                ],
+              ),
             ),
           ),
-           SizedBox(
+           const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -117,7 +137,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                     side: BorderSide(
-                      color: Colors.grey,
+                      color: Theme.of(context).colorScheme.tertiary,
                       width: 2,
                     ),
                   ),
@@ -125,9 +145,22 @@ class _SelectLanguageState extends State<SelectLanguage> {
                 elevation: const WidgetStatePropertyAll(2),
                 backgroundColor: const WidgetStatePropertyAll(Colors.white),
               ),
-              child: Text('हिंदी'),
+              child: const Row(
+                children: [
+                  Text('हिंदी'),
+                  SizedBox(width: 5),
+                  Text('(Hindi)',style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey,
+                  ),),
+                ],
+              ),
             ),
           ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Buttons(hintText: 'Continue',navigateName: Intro1(),)
         ],
       ),
     );
