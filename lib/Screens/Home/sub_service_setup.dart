@@ -1,0 +1,178 @@
+import 'package:flutter/material.dart';
+import 'package:localskillconnect/Screens/Home/main_screen.dart';
+import 'package:localskillconnect/Widgets/buttons.dart';
+
+class SubServiceSetup extends StatefulWidget {
+  const SubServiceSetup({super.key});
+
+  @override
+  State<SubServiceSetup> createState() => _SubServiceSetupState();
+}
+
+class _SubServiceSetupState extends State<SubServiceSetup> {
+  bool faninstallation = false;
+  bool lightrepair = false;
+  bool acservices=false;
+  bool geyserfitting=false;
+  bool watermotorrepair=false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: EdgeInsets.only(left: 25, right: 25),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 80,
+            ),
+            const Text('Sub Service Setup',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                )),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Select the services you offer and set your prices',
+              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            ServiceCard(
+              title: 'Fan Installation',
+              value: faninstallation,
+              onChanged: (val) {
+                setState(() => faninstallation = val ?? false);
+              },
+            ),
+             const SizedBox(
+              height: 10,
+            ),
+            ServiceCard(
+              title: 'Light Repair',
+              value: lightrepair,
+              onChanged: (val) {
+                setState(() => lightrepair = val ?? false);
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ServiceCard(
+              title: 'AC Services',
+              value: acservices,
+              onChanged: (val) {
+                setState(() => acservices = val ?? false);
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ServiceCard(
+              title: 'Geyser Fitting',
+              value:geyserfitting ,
+              onChanged: (val) {
+                setState(() => geyserfitting = val ?? false);
+              },
+            ),
+             const SizedBox(
+              height: 10,
+            ),
+            ServiceCard(
+              title: 'Water Motor Repair',
+              value:watermotorrepair ,
+              onChanged: (val) {
+                setState(() => watermotorrepair = val ?? false);
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(child: Buttons(hintText: 'Save',navigateName: MainScreen(),))
+          ],
+        ),
+      ),
+      
+    );
+  }
+}
+
+class ServiceCard extends StatelessWidget {
+  final String title;
+  final bool value;
+  final Function(bool?) onChanged;
+
+  const ServiceCard({
+    super.key,
+    required this.title,
+    required this.value,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        side: const BorderSide(
+          color: Colors.grey,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      elevation: 0,
+      child: SizedBox(
+        height: 60,
+        width: 350,
+        child: Row(
+          children: [
+            Checkbox(
+              value: value,
+              onChanged: onChanged,
+              activeColor: Theme.of(context).colorScheme.primary,
+              checkColor: Colors.white,
+            ),
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 100,
+              height: 30,
+              child: TextField(
+                style: const TextStyle(fontSize: 12),
+                decoration: InputDecoration(
+                  hintText: 'Price',
+                  hintStyle: const TextStyle(fontSize: 11),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  prefixIcon: const Padding(
+                    padding: EdgeInsets.only(left: 4, right: 4),
+                    child: Icon(Icons.currency_rupee_sharp, size: 14),
+                  ),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+            ),
+            SizedBox(
+              width: 20,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

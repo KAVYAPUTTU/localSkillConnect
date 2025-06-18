@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/Home/main_screen.dart';
+import 'package:localskillconnect/Screens/Home/sub_service_setup.dart';
 import 'package:localskillconnect/Widgets/buttons.dart';
 import 'package:localskillconnect/Widgets/input_fields.dart';
 
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       if (passwordError == null) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (builder) => MainScreen(),
+            builder: (builder) => SubServiceSetup(),
           ),
         );
       }
@@ -50,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
             'Local Skill Connect',
             style: TextStyle(
               fontFamily: 'AveriaSerifLibre',
-              fontSize: 24,
+              fontSize: 26,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,
             ),
@@ -127,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 30,
               ),
-              const Buttons(hintText: 'Login'),
+              Buttons(hintText: 'Login',onTap: handleLogin,),
               Center(
                 child: Text.rich(
                   TextSpan(
