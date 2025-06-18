@@ -15,6 +15,8 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
   bool acservices = false;
   bool geyserfitting = false;
   bool watermotorrepair = false;
+  bool othersSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,34 +98,54 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
               },
               showPriceField: watermotorrepair,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            // Card(
-            //   color: Colors.white,
-            //   shape: RoundedRectangleBorder(
-            //     side: const BorderSide(color: Colors.grey, width: 1),
-            //     borderRadius: BorderRadius.circular(10),
-            //   ),
-            //   elevation: 0,
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       SizedBox(
-            //         height: 60,
-            //         width: 350,
-            //         child: Text(
-            //           'Others',
-            //           style: TextStyle(
-            //             color: Theme.of(context).colorScheme.secondary,
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            Center(
+            if (othersSelected)
+              OthersServiceCard(
+                value: othersSelected,
+                onChanged: (val) {
+                  setState(() {
+                    othersSelected = val ?? false;
+                  });
+                },
+                showPriceField: othersSelected,
+              )
+            else
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(color: Colors.grey, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 0,
+                child: SizedBox(
+                  height: 60,
+                  width: 350,
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value: othersSelected,
+                        onChanged: (val) {
+                          setState(() {
+                            othersSelected = val ?? false;
+                          });
+                        },
+                        activeColor: Theme.of(context).colorScheme.primary,
+                        checkColor: Colors.white,
+                      ),
+                       Text(
+                        'Other',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Theme.of(context).colorScheme.secondary
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            const Center(
                 child: Buttons(
               hintText: 'Save',
               navigateName: Mainscreen(),
@@ -176,6 +198,90 @@ class ServiceCard extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
+            ),
+            if (showPriceField)
+              SizedBox(
+                width: 100,
+                height: 30,
+                child: TextField(
+                  style: const TextStyle(fontSize: 12),
+                  decoration: InputDecoration(
+                    hintText: 'Price',
+                    hintStyle: const TextStyle(fontSize: 11),
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    prefixIcon: const Padding(
+                      padding: EdgeInsets.only(left: 4, right: 4),
+                      child: Icon(Icons.currency_rupee_sharp, size: 14),
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+            const SizedBox(width: 20),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class OthersServiceCard extends StatelessWidget {
+  final bool value;
+  final Function(bool?) onChanged;
+  final bool showPriceField;
+
+  const OthersServiceCard({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    required this.showPriceField,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        side: const BorderSide(color: Colors.grey, width: 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      elevation: 0,
+      child: SizedBox(
+        height: 60,
+        width: 350,
+        child: Row(
+          children: [
+            Checkbox(
+              value: value,
+              onChanged: onChanged,
+              activeColor: Theme.of(context).colorScheme.primary,
+              checkColor: Colors.white,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            SizedBox(
+              width: 150,
+              height: 30,
+              child: TextField(
+                style: const TextStyle(fontSize: 12),
+                decoration: InputDecoration(
+                  hintText: 'Service Name',
+                  hintStyle: const TextStyle(fontSize: 11),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 20,
             ),
             if (showPriceField)
               SizedBox(
