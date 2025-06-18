@@ -12,9 +12,9 @@ class SubServiceSetup extends StatefulWidget {
 class _SubServiceSetupState extends State<SubServiceSetup> {
   bool faninstallation = false;
   bool lightrepair = false;
-  bool acservices=false;
-  bool geyserfitting=false;
-  bool watermotorrepair=false;
+  bool acservices = false;
+  bool geyserfitting = false;
+  bool watermotorrepair = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,8 +50,9 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
               onChanged: (val) {
                 setState(() => faninstallation = val ?? false);
               },
+              showPriceField: faninstallation,
             ),
-             const SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ServiceCard(
@@ -60,6 +61,7 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
               onChanged: (val) {
                 setState(() => lightrepair = val ?? false);
               },
+              showPriceField: lightrepair,
             ),
             const SizedBox(
               height: 10,
@@ -70,35 +72,65 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
               onChanged: (val) {
                 setState(() => acservices = val ?? false);
               },
+              showPriceField: acservices,
             ),
             const SizedBox(
               height: 10,
             ),
             ServiceCard(
               title: 'Geyser Fitting',
-              value:geyserfitting ,
+              value: geyserfitting,
               onChanged: (val) {
                 setState(() => geyserfitting = val ?? false);
               },
+              showPriceField: geyserfitting,
             ),
-             const SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ServiceCard(
               title: 'Water Motor Repair',
-              value:watermotorrepair ,
+              value: watermotorrepair,
               onChanged: (val) {
                 setState(() => watermotorrepair = val ?? false);
               },
+              showPriceField: watermotorrepair,
             ),
             SizedBox(
               height: 20,
             ),
-            Center(child: Buttons(hintText: 'Save',navigateName: MainScreen(),))
+            // Card(
+            //   color: Colors.white,
+            //   shape: RoundedRectangleBorder(
+            //     side: const BorderSide(color: Colors.grey, width: 1),
+            //     borderRadius: BorderRadius.circular(10),
+            //   ),
+            //   elevation: 0,
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       SizedBox(
+            //         height: 60,
+            //         width: 350,
+            //         child: Text(
+            //           'Others',
+            //           style: TextStyle(
+            //             color: Theme.of(context).colorScheme.secondary,
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            Center(
+                child: Buttons(
+              hintText: 'Save',
+              navigateName: Mainscreen(),
+            ))
           ],
         ),
       ),
-      
     );
   }
 }
@@ -107,12 +139,14 @@ class ServiceCard extends StatelessWidget {
   final String title;
   final bool value;
   final Function(bool?) onChanged;
+  final bool showPriceField;
 
   const ServiceCard({
     super.key,
     required this.title,
     required this.value,
     required this.onChanged,
+    required this.showPriceField,
   });
 
   @override
@@ -120,10 +154,7 @@ class ServiceCard extends StatelessWidget {
     return Card(
       color: Colors.white,
       shape: RoundedRectangleBorder(
-        side: const BorderSide(
-          color: Colors.grey,
-          width: 1,
-        ),
+        side: const BorderSide(color: Colors.grey, width: 1),
         borderRadius: BorderRadius.circular(10),
       ),
       elevation: 0,
@@ -146,30 +177,29 @@ class ServiceCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: 100,
-              height: 30,
-              child: TextField(
-                style: const TextStyle(fontSize: 12),
-                decoration: InputDecoration(
-                  hintText: 'Price',
-                  hintStyle: const TextStyle(fontSize: 11),
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
+            if (showPriceField)
+              SizedBox(
+                width: 100,
+                height: 30,
+                child: TextField(
+                  style: const TextStyle(fontSize: 12),
+                  decoration: InputDecoration(
+                    hintText: 'Price',
+                    hintStyle: const TextStyle(fontSize: 11),
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    prefixIcon: const Padding(
+                      padding: EdgeInsets.only(left: 4, right: 4),
+                      child: Icon(Icons.currency_rupee_sharp, size: 14),
+                    ),
                   ),
-                  prefixIcon: const Padding(
-                    padding: EdgeInsets.only(left: 4, right: 4),
-                    child: Icon(Icons.currency_rupee_sharp, size: 14),
-                  ),
+                  keyboardType: TextInputType.number,
                 ),
-                keyboardType: TextInputType.number,
               ),
-            ),
-            SizedBox(
-              width: 20,
-            )
+            const SizedBox(width: 20),
           ],
         ),
       ),

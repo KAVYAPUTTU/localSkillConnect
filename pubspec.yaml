@@ -26,6 +26,9 @@ flutter:
     - assets/img/intro1.png
     - assets/img/intro2.png
     - assets/img/intro3.png
+    - assets/img/wallet.png
+    - assets/img/bookings.png
+    - assets/img/profile.png
 
   fonts:
     - family: AveriaSerifLibre
