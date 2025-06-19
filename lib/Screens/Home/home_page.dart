@@ -1,7 +1,13 @@
+import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final List<String> imglist = [
+    'assets/img/carouselimg.jpg',
+    'assets/img/carouselimg.jpg',
+    'assets/img/carouselimg.jpg'
+  ];
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +19,10 @@ class HomePage extends StatelessWidget {
           elevation: 2,
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: const Padding(
-            padding: EdgeInsets.only(left: 10.0,top: 10),
+            padding: EdgeInsets.only(left: 10.0, top: 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, 
-              mainAxisSize: MainAxisSize.min, 
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   'Welcome, John Doe',
@@ -43,15 +49,41 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-         actions: [
-          Icon(Icons.notifications,color: Colors.white,),
-          SizedBox(
-            width: 20,
-          )
-         ],
+          actions: const [
+            Icon(
+              Icons.notifications,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 20,
+            )
+          ],
         ),
       ),
-      body: const Center(child: Text('Content here')),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [      
+          Center(
+            child: SizedBox(
+              height: 250,
+              width: 370,
+              child: AnotherCarousel(
+                images: imglist
+                    .map((imgPath) => Image.asset(imgPath, fit: BoxFit.contain))
+                    .toList(),
+                dotSize: 4,
+                dotSpacing: 15,
+                dotIncreasedColor:Colors.black,
+                dotColor: Colors.grey,
+                indicatorBgPadding: 55,
+                dotBgColor: const Color.fromARGB(0, 255, 255, 255),
+                dotPosition: DotPosition.bottomCenter,
+                autoplay: true,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

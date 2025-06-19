@@ -145,6 +145,9 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 30,
+              ),
             const Center(
                 child: Buttons(
               hintText: 'Save',
