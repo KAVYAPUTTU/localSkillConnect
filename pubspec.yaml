@@ -31,6 +31,10 @@ flutter:
     - assets/img/bookings.png
     - assets/img/profile.png
     - assets/img/carouselimg.jpg
+    - assets/img/earnings.png
+    - assets/img/lostjobs.png
+    - assets/img/rate.png
+    - assets/img/lostjobs2.png
 
   fonts:
     - family: AveriaSerifLibre
