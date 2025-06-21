@@ -35,6 +35,12 @@ flutter:
     - assets/img/lostjobs.png
     - assets/img/rate.png
     - assets/img/lostjobs2.png
+    - assets/img/services.png
+    - assets/img/savings.png
+    - assets/img/points.png
+    - assets/img/reviews.png
+    - assets/img/referal.png
+    
 
   fonts:
     - family: AveriaSerifLibre
