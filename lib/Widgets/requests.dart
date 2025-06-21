@@ -10,6 +10,8 @@ class RequestCard extends StatelessWidget {
   final Color urgencyColor;
   final Color backgroundColor;
   final VoidCallback? onAccept;
+  final Color iconcolor;
+  final Color locationcolor;
 
   const RequestCard({
     super.key,
@@ -20,8 +22,8 @@ class RequestCard extends StatelessWidget {
     required this.price,
     required this.urgencyLabel,
     required this.urgencyColor,
-    this.backgroundColor = const Color.fromARGB(75, 235, 11, 78),
-    this.onAccept,
+    required this.backgroundColor,
+    this.onAccept, required this.iconcolor, required this.locationcolor,
   });
 
   @override
@@ -83,10 +85,10 @@ class RequestCard extends StatelessWidget {
             
             Row(
               children: [
-                const Icon(Icons.location_on, size: 11, color: Colors.white),
+                Icon(Icons.location_on, size: 11, color: iconcolor),
                 Text(
                   location,
-                  style: const TextStyle(fontSize: 11, color: Colors.white),
+                  style: TextStyle(fontSize: 11, color: locationcolor),
                 ),
               ],
             ),

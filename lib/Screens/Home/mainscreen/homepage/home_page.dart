@@ -1,6 +1,7 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/homepage/referal_page.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/homepage/requests_page.dart';
 import 'package:localskillconnect/Widgets/requests.dart';
 
 class HomePage extends StatelessWidget {
@@ -159,29 +160,34 @@ class HomePage extends StatelessWidget {
                   price: '300/-',
                   urgencyLabel: 'Immediate',
                   urgencyColor: Colors.red,
-                  onAccept: () {
-                    // handle tap
-                  },
+                  onAccept: () {},
+                  backgroundColor: Colors.red.shade200,
+                  iconcolor: Colors.white,
+                  locationcolor: Colors.white,
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'View More',
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: Theme.of(context).colorScheme.primary),
-                    ),
-                    Icon(
-                      Icons.keyboard_double_arrow_down,
-                      size: 13,
-                      color: Theme.of(context).colorScheme.primary,
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RequestsPage())),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'View More',
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
+                      Icon(
+                        Icons.keyboard_double_arrow_down,
+                        size: 13,
+                        color: Theme.of(context).colorScheme.primary,
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -227,7 +233,8 @@ class HomePage extends StatelessWidget {
                   height: 30,
                 ),
                 GestureDetector(
-                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ReferalPage())),
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ReferalPage())),
                   child: Container(
                     height: 70,
                     width: 350,
@@ -249,7 +256,8 @@ class HomePage extends StatelessWidget {
                               'Earn upto',
                               style: TextStyle(
                                   fontSize: 13,
-                                  color: Theme.of(context).colorScheme.secondary,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
@@ -263,7 +271,8 @@ class HomePage extends StatelessWidget {
                               'for every referral',
                               style: TextStyle(
                                   fontSize: 10,
-                                  color: Theme.of(context).colorScheme.secondary,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   fontWeight: FontWeight.w600),
                             )
                           ],
