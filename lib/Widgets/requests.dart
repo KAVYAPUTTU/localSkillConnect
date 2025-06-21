@@ -38,7 +38,7 @@ class RequestCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Header row: Username and Timer + Accept
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -80,7 +80,7 @@ class RequestCard extends StatelessWidget {
               ],
             ),
 
-            /// Location
+            
             Row(
               children: [
                 const Icon(Icons.location_on, size: 11, color: Colors.white),
@@ -93,7 +93,7 @@ class RequestCard extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            /// Service
+           
             Row(
               children: [
                 const Text(
@@ -110,7 +110,7 @@ class RequestCard extends StatelessWidget {
               ],
             ),
 
-            /// Price
+           
             Row(
               children: [
                 const Text(
@@ -127,7 +127,7 @@ class RequestCard extends StatelessWidget {
               ],
             ),
 
-            /// Urgency
+            
             Row(
               children: [
                 const Text(
