@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:localskillconnect/Screens/Home/main_screen.dart';
 import 'package:localskillconnect/Screens/Home/sub_service_setup.dart';
 import 'package:localskillconnect/Widgets/buttons.dart';
 import 'package:localskillconnect/Widgets/input_fields.dart';

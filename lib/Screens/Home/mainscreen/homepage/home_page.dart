@@ -1,5 +1,6 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/homepage/referal_page.dart';
 import 'package:localskillconnect/Widgets/requests.dart';
 
 class HomePage extends StatelessWidget {
@@ -225,58 +226,61 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                Container(
-                  height: 70,
-                  width: 350,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.deepPurpleAccent),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      ArrowCard(),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Earn upto',
-                            style: TextStyle(
-                                fontSize: 13,
-                                color: Theme.of(context).colorScheme.secondary,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            '\$ 500',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.purple,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            'for every referral',
-                            style: TextStyle(
-                                fontSize: 10,
-                                color: Theme.of(context).colorScheme.secondary,
-                                fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Transform.rotate(
-                          angle: 0.5,
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            child: Image.asset('assets/img/referal.png'),
-                          ),
+                GestureDetector(
+                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ReferalPage())),
+                  child: Container(
+                    height: 70,
+                    width: 350,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.deepPurpleAccent),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        ArrowCard(),
+                        SizedBox(
+                          width: 30,
                         ),
-                      )
-                    ],
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Earn upto',
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Theme.of(context).colorScheme.secondary,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              '\$ 500',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.purple,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              'for every referral',
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Theme.of(context).colorScheme.secondary,
+                                  fontWeight: FontWeight.w600),
+                            )
+                          ],
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Transform.rotate(
+                            angle: 0.5,
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              child: Image.asset('assets/img/referal.png'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],

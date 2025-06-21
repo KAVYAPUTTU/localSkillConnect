@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:localskillconnect/Screens/Home/main_screen.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/main_screen.dart';
 import 'package:localskillconnect/Widgets/buttons.dart';
 
 class SubServiceSetup extends StatefulWidget {
