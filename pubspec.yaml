@@ -12,7 +12,9 @@ dependencies:
     sdk: flutter
   smooth_page_indicator: ^1.1.0
   cupertino_icons: ^1.0.8 
-  another_carousel_pro: 
+  another_carousel_pro:
+  intl: 
+  
 
 dev_dependencies:
   flutter_test:
