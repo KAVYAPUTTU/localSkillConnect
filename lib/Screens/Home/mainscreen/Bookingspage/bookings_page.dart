@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/job_completed_page.dart';
-import 'package:localskillconnect/Screens/Home/mainscreen/homepage/home_page.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/job_rejected_page.dart';
 import 'package:localskillconnect/Widgets/bookings_request_card.dart';
-import 'package:localskillconnect/Widgets/requests.dart'; // For formatting the date
+
 
 class BookingsPage extends StatefulWidget {
   const BookingsPage({super.key});
@@ -138,7 +138,9 @@ class _BookingsPageState extends State<BookingsPage> {
                       statusButtonColor:
                           Colors.red, 
                       backgroundColor: Colors.white,
-                      onAccept: () {},
+                      onAccept: () {
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>JobCompletedPage()));
+                      },
                       iconcolor: Colors.grey,
                       locationcolor: Colors.grey, showstatusbutton: false,
                     ),
@@ -172,7 +174,9 @@ class _BookingsPageState extends State<BookingsPage> {
                       statusButtonColor:
                           Colors.red, 
                       backgroundColor: Colors.white,
-                      onAccept: () {},
+                      onAccept: () {
+                     showRejectionSheet(context);
+                      },
                       iconcolor: Colors.grey,
                       locationcolor: Colors.grey, showstatusbutton: true,
                     ),
@@ -188,9 +192,14 @@ class _BookingsPageState extends State<BookingsPage> {
                       statusButtonColor:
                           Colors.red, 
                       backgroundColor: Colors.white,
-                      onAccept: () {},
+                      onAccept: () {
+                       
+                      },
                       iconcolor: Colors.grey,
                       locationcolor: Colors.grey, showstatusbutton: false,
+                       onTap: () {
+                         Navigator.push(context,MaterialPageRoute(builder: (context)=>JobRejectedPage()));
+                       },
                     ),
                     const SizedBox(height: 10),
                      BookingsRequestCard(
@@ -207,6 +216,9 @@ class _BookingsPageState extends State<BookingsPage> {
                       onAccept: () {},
                       iconcolor: Colors.grey,
                       locationcolor: Colors.grey, showstatusbutton: false,
+                       onTap: () {
+                         Navigator.push(context,MaterialPageRoute(builder: (context)=>JobRejectedPage()));
+                       },
                     ),
                   ],
                 ],
@@ -265,4 +277,99 @@ class DropDown extends StatelessWidget {
       ),
     );
   }
+}
+
+void showRejectionSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+    ),
+    builder: (context) {
+      return Container(
+        height: 400,
+        color: Colors.white,
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(Icons.close, color: Colors.red),
+            SizedBox(height: 20,),
+            SizedBox(width: 8),
+            Text(
+              'Rejection',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.red
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Explain the reason to reject this job?',
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              maxLines: 3,
+              decoration: InputDecoration(
+                hintText: 'Reason goes here ...',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                contentPadding: const EdgeInsets.all(10),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Icon(Icons.warning, color: Colors.amber, size: 20),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    'By rejecting this job your points deducted by 10.',
+                    style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      )
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Cancel'),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      )
+                    ),
+                    onPressed: () {
+                      // Handle reject logic
+                    },
+                    child: const Text('Reject',style: TextStyle(
+                      color: Colors.white
+                    ),),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
