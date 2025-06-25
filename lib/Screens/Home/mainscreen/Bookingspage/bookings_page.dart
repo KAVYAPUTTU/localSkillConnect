@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/job_completed_page.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/homepage/home_page.dart';
 import 'package:localskillconnect/Widgets/bookings_request_card.dart';
 import 'package:localskillconnect/Widgets/requests.dart'; // For formatting the date
 
@@ -18,7 +20,11 @@ class _BookingsPageState extends State<BookingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bookings'),
+        title: const Text('Bookings',style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          color: Colors.white
+        ),),
         backgroundColor: Theme.of(context).colorScheme.primary,
         actions: const [
           Icon(Icons.notifications, color: Colors.white),
@@ -114,7 +120,11 @@ class _BookingsPageState extends State<BookingsPage> {
                       backgroundColor: Colors.white,
                       onAccept: () {},
                       iconcolor: Colors.grey,
-                      locationcolor: Colors.grey, showstatusbutton: false,
+                      locationcolor: Colors.grey,
+                       showstatusbutton: false,
+                       onTap: () {
+                         Navigator.push(context,MaterialPageRoute(builder: (context)=>JobCompletedPage()));
+                       },
                     ),
                     const SizedBox(height: 10),
                      BookingsRequestCard(
