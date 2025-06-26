@@ -143,3 +143,4 @@ class Jobrejectedcard extends StatelessWidget {
     );
   }
 }
+

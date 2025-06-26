@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/job_completed_page.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/job_rejected_page.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/start_job_page.dart';
 import 'package:localskillconnect/Widgets/bookings_request_card.dart';
 
 
@@ -156,7 +157,9 @@ class _BookingsPageState extends State<BookingsPage> {
                       statusButtonColor:
                           Theme.of(context).colorScheme.primary, 
                       backgroundColor: Colors.white,
-                      onAccept: () {},
+                      onAccept: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>StartJobPage()));
+                      },
                       iconcolor: Colors.grey,
                       locationcolor: Colors.grey, showstatusbutton: true,
                     ),
@@ -294,7 +297,9 @@ void showRejectionSheet(BuildContext context) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.close, color: Colors.red),
+            GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Icon(Icons.close, color: Colors.red)),
             SizedBox(height: 20,),
             SizedBox(width: 8),
             Text(

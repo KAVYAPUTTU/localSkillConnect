@@ -43,6 +43,8 @@ flutter:
     - assets/img/points.png
     - assets/img/reviews.png
     - assets/img/referal.png
+    - assets/img/map.jpg
+    - assets/img/success.png
     
 
   fonts:

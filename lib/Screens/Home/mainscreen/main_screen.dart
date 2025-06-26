@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/Bookingspage/bookings_page.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/homepage/home_page.dart';
-import 'package:localskillconnect/Screens/Home/profile_page.dart';
+import 'package:localskillconnect/Screens/Home/mainscreen/profilepage/profile_page.dart';
 import 'package:localskillconnect/Screens/Home/wallet_page.dart';
 
 class Mainscreen extends StatefulWidget {
