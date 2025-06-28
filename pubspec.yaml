@@ -45,6 +45,18 @@ flutter:
     - assets/img/referal.png
     - assets/img/map.jpg
     - assets/img/success.png
+    - assets/img/coin.png
+    - assets/img/profile2.png
+    - assets/img/myservices.png 
+    - assets/img/mypoints.png
+    - assets/img/myreviews.png
+    - assets/img/mysavings.png
+    - assets/img/rateit.png
+    - assets/img/delete.png
+    - assets/img/legal.png
+    - assets/img/logout.png
+    - assets/img/mylanguage.png
+    - assets/img/mypassword.png
     
 
   fonts:
