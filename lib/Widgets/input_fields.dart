@@ -41,11 +41,11 @@ class _InputFieldsState extends State<InputFields> {
               obscureText: widget.isPassword ? _obscureText : false,
               onChanged: widget.onChanged,
               style: const TextStyle(
-                fontSize: 18,
-                fontFamily: 'CrimsonText-Bold',
+                fontSize: 14,
               ),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade200, width: 1),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20),

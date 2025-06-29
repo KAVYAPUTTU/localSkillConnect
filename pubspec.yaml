@@ -57,6 +57,8 @@ flutter:
     - assets/img/logout.png
     - assets/img/mylanguage.png
     - assets/img/mypassword.png
+    - assets/img/pointsdeducted.png
+    - assets/img/pointsadded.png
     
 
   fonts:
