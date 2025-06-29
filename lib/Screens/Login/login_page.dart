@@ -40,121 +40,125 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        const SizedBox(
-          height: 80,
-        ),
-        Center(
-          child: Text(
-            'Local Skill Connect',
-            style: TextStyle(
-              fontFamily: 'AveriaSerifLibre',
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.primary,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+                  children: [
+            const SizedBox(
+              height: 50,
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 25, right: 25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              const Text(
-                'Login',
+            Center(
+              child: Text(
+                'Local Skill Connect',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontFamily: 'AveriaSerifLibre',
+                  fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              const Text(
-                'Name',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
-              ),
-              const InputFields(icon: Icon(Icons.person), hinttext: 'Name'),
-              const SizedBox(
-                height: 30,
-              ),
-              const Text(
-                'Password',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
-              ),
-              InputFields(
-                icon: const Icon(Icons.lock),
-                hinttext: 'Enter Password',
-                errorText: passwordError,
-                suffixicon: const Icon(Icons.remove_red_eye),
-                isPassword: true,
-                controller: _passwordController,
-                onChanged: (value) {
-                  if (passwordError != null) {
-                    setState(() {
-                      passwordError = null;
-                    });
-                  }
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Text(
-                  'Forgot Password',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Theme.of(context).colorScheme.primary,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Buttons(hintText: 'Login',onTap: handleLogin,),
-              Center(
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Don’t have an account? ', // First half
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontSize: 16,
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' Sign Up', // Second half
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                  const Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Text(
+                    'Name',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const InputFields(icon: Icon(Icons.person), hinttext: 'Name'),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Text(
+                    'Password',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
+                  InputFields(
+                    icon: const Icon(Icons.lock),
+                    hinttext: 'Enter Password',
+                    errorText: passwordError,
+                    suffixicon: const Icon(Icons.remove_red_eye),
+                    isPassword: true,
+                    controller: _passwordController,
+                    onChanged: (value) {
+                      if (passwordError != null) {
+                        setState(() {
+                          passwordError = null;
+                        });
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: Text(
+                      'Forgot Password',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Buttons(hintText: 'Login',onTap: handleLogin,),
+                  Center(
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Don’t have an account? ', // First half
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 16,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' Sign Up', // Second half
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            )
+                  ],
+                ),
           ),
-        )
-      ],
-    ));
+        ));
   }
 }

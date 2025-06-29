@@ -298,7 +298,7 @@ class OptionCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap, // optional action
       child: Container(
-        width: 330,
+        width: 360,
         height: 36,
         decoration: BoxDecoration(
           color: Colors.white,

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Buttons extends StatelessWidget {
+class Buttons2 extends StatelessWidget {
   final String hintText;
   final Widget? navigateName;     
-  final VoidCallback? onTap;       
+  final VoidCallback? onTap;
+  final double height;
+  final double width;     
 
-  const Buttons({
+  const Buttons2({
     super.key,
     required this.hintText,
     this.navigateName,
-    this.onTap,
+    this.onTap, required this.height, required this.width,
   });
 
   @override
@@ -29,10 +31,10 @@ class Buttons extends StatelessWidget {
           }
         },
         child: Container(
-          width: 360,
-          height: 50,
+          width: width,
+          height: height,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(6),
             color: Theme.of(context).colorScheme.primary,
           ),
           child: Center(
@@ -40,7 +42,7 @@ class Buttons extends StatelessWidget {
               hintText,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 14,
                fontWeight: FontWeight.w600
               ),
             ),

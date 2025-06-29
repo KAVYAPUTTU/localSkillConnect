@@ -59,6 +59,8 @@ flutter:
     - assets/img/mypassword.png
     - assets/img/pointsdeducted.png
     - assets/img/pointsadded.png
+    - assets/img/red.png
+    - assets/img/green.png
     
 
   fonts:
