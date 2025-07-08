@@ -19,7 +19,7 @@ class FeedbackCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 95,
-      width: 400,
+      width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(

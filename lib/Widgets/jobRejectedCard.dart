@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 class Jobrejectedcard extends StatelessWidget {
   final String userName;
   final String location;
@@ -17,18 +18,21 @@ class Jobrejectedcard extends StatelessWidget {
       required this.userId,
       required this.date,
       required this.points,
-     required this.reason});
+      required this.reason});
 
   Widget buildRow(String label, String value, {Color? valueColor}) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '$label ',
+          label,
           style: const TextStyle(fontSize: 12, color: Colors.grey),
         ),
         Text(
           value,
-          maxLines: 2,
+          softWrap: true,
+          maxLines: null,
+          overflow: TextOverflow.visible,
           style: TextStyle(
             fontSize: 12,
             color: valueColor ?? Colors.black,
@@ -41,7 +45,8 @@ class Jobrejectedcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 500,
+      width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -56,7 +61,10 @@ class Jobrejectedcard extends StatelessWidget {
               Text(
                 'Job Rejected',
                 maxLines: 2,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700,),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               Icon(Icons.close_sharp, color: Colors.red),
             ],
@@ -118,6 +126,8 @@ class Jobrejectedcard extends StatelessWidget {
             ),
             padding: const EdgeInsets.only(bottom: 10),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildRow('Service:', service),
                 const SizedBox(height: 5),
@@ -131,16 +141,20 @@ class Jobrejectedcard extends StatelessWidget {
           const Text('Rejection Info',
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
           const SizedBox(height: 6),
-           Column(
+          Column(
+             mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buildRow('Reason:', reason),
-              const SizedBox(height: 6,),
-              buildRow('Points Deducted', '$points points',valueColor: Colors.red)
+              const SizedBox(
+                height: 6,
+              ),
+              buildRow('Points Deducted', '$points points',
+                  valueColor: Colors.red)
             ],
-           )
+          )
         ],
       ),
     );
   }
 }
-

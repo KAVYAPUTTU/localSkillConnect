@@ -32,12 +32,11 @@ class _BookingsPageState extends State<BookingsPage> {
           SizedBox(width: 20),
         ],
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: SingleChildScrollView(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+        child: Column(
+          children: [
+            SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
@@ -101,134 +100,134 @@ class _BookingsPageState extends State<BookingsPage> {
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  if (selectedValue == 'completed') ...[
-                    BookingsRequestCard(
-                      username: 'User name',
-                      location: 'city, district · distance(10km)',
-                      service: 'Fan installation',
-                      price: '300/-',
-                      urgencyLabel: 'Scheduled',
-                      urgencyColor: Colors.blueGrey,
-                      statustext: 'Reject',
-                      statusButtonColor:
-                          Colors.red, 
-                      backgroundColor: Colors.white,
-                      onAccept: () {},
-                      iconcolor: Colors.grey,
-                      locationcolor: Colors.grey,
-                       showstatusbutton: false,
-                       onTap: () {
-                         Navigator.push(context,MaterialPageRoute(builder: (context)=>JobCompletedPage()));
-                       },
-                    ),
-                    const SizedBox(height: 10),
+            const SizedBox(height: 10),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    if (selectedValue == 'completed') ...[
+                      BookingsRequestCard(
+                        username: 'User name',
+                        location: 'city, district · distance(10km)',
+                        service: 'Fan installation',
+                        price: '300/-',
+                        urgencyLabel: 'Scheduled',
+                        urgencyColor: Colors.blueGrey,
+                        statustext: 'Reject',
+                        statusButtonColor:
+                            Colors.red, 
+                        backgroundColor: Colors.white,
+                        onAccept: () {},
+                        iconcolor: Colors.grey,
+                        locationcolor: Colors.grey,
+                         showstatusbutton: false,
+                         onTap: () {
+                           Navigator.push(context,MaterialPageRoute(builder: (context)=>const JobCompletedPage()));
+                         },
+                      ),
+                      const SizedBox(height: 10),
+                       BookingsRequestCard(
+                        username: 'User name',
+                        location: 'city, district · distance(10km)',
+                        service: 'Fan installation',
+                        price: '300/-',
+                        urgencyLabel: 'Scheduled',
+                        urgencyColor: Colors.blueGrey,
+                        statustext: 'Reject',
+                        statusButtonColor:
+                            Colors.red, 
+                        backgroundColor: Colors.white,
+                        onAccept: () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=>const JobCompletedPage()));
+                        },
+                        iconcolor: Colors.grey,
+                        locationcolor: Colors.grey, showstatusbutton: false,
+                      ),
+                    ] else if (selectedValue == 'pending') ...[
+                      BookingsRequestCard(
+                        username: 'User name',
+                        location: 'city, district · distance(10km)',
+                        service: 'Fan installation',
+                        price: '300/-',
+                        urgencyLabel: 'Scheduled',
+                        urgencyColor: Colors.blueGrey,
+                        statustext: 'Start Job',
+                        statusButtonColor:
+                            Theme.of(context).colorScheme.primary, 
+                        backgroundColor: Colors.white,
+                        onAccept: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartJobPage()));
+                        },
+                        iconcolor: Colors.grey,
+                        locationcolor: Colors.grey, showstatusbutton: true,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      BookingsRequestCard(
+                        username: 'User name',
+                        location: 'city, district · distance(10km)',
+                        service: 'Fan installation',
+                        price: '300/-',
+                        urgencyLabel: 'Scheduled',
+                        urgencyColor: Colors.blueGrey,
+                        statustext: 'Reject',
+                        statusButtonColor:
+                            Colors.red, 
+                        backgroundColor: Colors.white,
+                        onAccept: () {
+                       showRejectionSheet(context);
+                        },
+                        iconcolor: Colors.grey,
+                        locationcolor: Colors.grey, showstatusbutton: true,
+                      ),
+                    ] else if (selectedValue == 'rejected') ...[
                      BookingsRequestCard(
-                      username: 'User name',
-                      location: 'city, district · distance(10km)',
-                      service: 'Fan installation',
-                      price: '300/-',
-                      urgencyLabel: 'Scheduled',
-                      urgencyColor: Colors.blueGrey,
-                      statustext: 'Reject',
-                      statusButtonColor:
-                          Colors.red, 
-                      backgroundColor: Colors.white,
-                      onAccept: () {
-                        Navigator.push(context,MaterialPageRoute(builder: (context)=>JobCompletedPage()));
-                      },
-                      iconcolor: Colors.grey,
-                      locationcolor: Colors.grey, showstatusbutton: false,
-                    ),
-                  ] else if (selectedValue == 'pending') ...[
-                    BookingsRequestCard(
-                      username: 'User name',
-                      location: 'city, district · distance(10km)',
-                      service: 'Fan installation',
-                      price: '300/-',
-                      urgencyLabel: 'Scheduled',
-                      urgencyColor: Colors.blueGrey,
-                      statustext: 'Start Job',
-                      statusButtonColor:
-                          Theme.of(context).colorScheme.primary, 
-                      backgroundColor: Colors.white,
-                      onAccept: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>StartJobPage()));
-                      },
-                      iconcolor: Colors.grey,
-                      locationcolor: Colors.grey, showstatusbutton: true,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    BookingsRequestCard(
-                      username: 'User name',
-                      location: 'city, district · distance(10km)',
-                      service: 'Fan installation',
-                      price: '300/-',
-                      urgencyLabel: 'Scheduled',
-                      urgencyColor: Colors.blueGrey,
-                      statustext: 'Reject',
-                      statusButtonColor:
-                          Colors.red, 
-                      backgroundColor: Colors.white,
-                      onAccept: () {
-                     showRejectionSheet(context);
-                      },
-                      iconcolor: Colors.grey,
-                      locationcolor: Colors.grey, showstatusbutton: true,
-                    ),
-                  ] else if (selectedValue == 'rejected') ...[
-                   BookingsRequestCard(
-                      username: 'User name',
-                      location: 'city, district · distance(10km)',
-                      service: 'Fan installation',
-                      price: '300/-',
-                      urgencyLabel: 'Scheduled',
-                      urgencyColor: Colors.blueGrey,
-                      statustext: 'Reject',
-                      statusButtonColor:
-                          Colors.red, 
-                      backgroundColor: Colors.white,
-                      onAccept: () {
-                       
-                      },
-                      iconcolor: Colors.grey,
-                      locationcolor: Colors.grey, showstatusbutton: false,
-                       onTap: () {
-                         Navigator.push(context,MaterialPageRoute(builder: (context)=>JobRejectedPage()));
-                       },
-                    ),
-                    const SizedBox(height: 10),
-                     BookingsRequestCard(
-                      username: 'User name',
-                      location: 'city, district · distance(10km)',
-                      service: 'Fan installation',
-                      price: '300/-',
-                      urgencyLabel: 'Scheduled',
-                      urgencyColor: Colors.blueGrey,
-                      statustext: 'Reject',
-                      statusButtonColor:
-                          Colors.red, 
-                      backgroundColor: Colors.white,
-                      onAccept: () {},
-                      iconcolor: Colors.grey,
-                      locationcolor: Colors.grey, showstatusbutton: false,
-                       onTap: () {
-                         Navigator.push(context,MaterialPageRoute(builder: (context)=>JobRejectedPage()));
-                       },
-                    ),
+                        username: 'User name',
+                        location: 'city, district · distance(10km)',
+                        service: 'Fan installation',
+                        price: '300/-',
+                        urgencyLabel: 'Scheduled',
+                        urgencyColor: Colors.blueGrey,
+                        statustext: 'Reject',
+                        statusButtonColor:
+                            Colors.red, 
+                        backgroundColor: Colors.white,
+                        onAccept: () {
+                         
+                        },
+                        iconcolor: Colors.grey,
+                        locationcolor: Colors.grey, showstatusbutton: false,
+                         onTap: () {
+                           Navigator.push(context,MaterialPageRoute(builder: (context)=>const JobRejectedPage()));
+                         },
+                      ),
+                      const SizedBox(height: 10),
+                       BookingsRequestCard(
+                        username: 'User name',
+                        location: 'city, district · distance(10km)',
+                        service: 'Fan installation',
+                        price: '300/-',
+                        urgencyLabel: 'Scheduled',
+                        urgencyColor: Colors.blueGrey,
+                        statustext: 'Reject',
+                        statusButtonColor:
+                            Colors.red, 
+                        backgroundColor: Colors.white,
+                        onAccept: () {},
+                        iconcolor: Colors.grey,
+                        locationcolor: Colors.grey, showstatusbutton: false,
+                         onTap: () {
+                           Navigator.push(context,MaterialPageRoute(builder: (context)=>const JobRejectedPage()));
+                         },
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -249,7 +248,7 @@ class DropDown extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       height: 40,
-      width: 140,
+      width: 120,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Colors.grey.shade400),
@@ -299,10 +298,10 @@ void showRejectionSheet(BuildContext context) {
           children: [
             GestureDetector(
               onTap: () => Navigator.pop(context),
-              child: Icon(Icons.close, color: Colors.red)),
-            SizedBox(height: 20,),
-            SizedBox(width: 8),
-            Text(
+              child:const  Icon(Icons.close, color: Colors.red)),
+            const SizedBox(height: 20,),
+            const SizedBox(width: 8),
+            const Text(
               'Rejection',
               style: TextStyle(
                 fontSize: 16,

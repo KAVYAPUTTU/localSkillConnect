@@ -8,7 +8,7 @@ class StartJobPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title:const Text(
           'Start Job',
           style: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
@@ -18,7 +18,7 @@ class StartJobPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Container(
+          SizedBox(
               height: double.infinity,
               width: double.infinity,
               child: Image.asset(
@@ -26,11 +26,11 @@ class StartJobPage extends StatelessWidget {
                 fit: BoxFit.cover,
               )),
           Positioned(
-            top: 230,
+            top: 200,
             right: 80,
             child: GestureDetector(
               onTap: () => Navigator.of(context, rootNavigator: true).push(
-                MaterialPageRoute(builder: (context) => DirectionsPage()),
+                MaterialPageRoute(builder: (context) =>const DirectionsPage()),
               ),
               child: Container(
                 height: 40,
@@ -38,7 +38,7 @@ class StartJobPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(10)),
-                child: Center(
+                child:const Center(
                   child: Text(
                     'Show Directions',
                     style: TextStyle(
@@ -60,7 +60,7 @@ class StartJobPage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(16),
                       topRight: Radius.circular(16))),
-              height: 400,
+              height: 450,
               width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -77,40 +77,43 @@ class StartJobPage extends StatelessWidget {
                           child: const Icon(Icons.person, size: 40),
                         ),
                         const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'User Name',
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  const Icon(Icons.location_on,
-                                      size: 12, color: Colors.grey),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    'city, district · distance(10km)',
-                                    style: const TextStyle(
-                                        fontSize: 11, color: Colors.grey),
+                       const Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'User Name',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                ],
-                              ),
-                            ],
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(Icons.location_on,
+                                        size: 12, color: Colors.grey),
+                                     SizedBox(width: 4),
+                                    Text(
+                                      'city, district · distance(10km)',
+                                      style: TextStyle(
+                                          fontSize: 11, color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         FloatingActionButton(
                           onPressed: () {},
                           foregroundColor: Colors.white,
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           elevation: 0,
                           backgroundColor:
                               Theme.of(context).colorScheme.primary,
-                          child: Icon(
+                          child:const  Icon(
                             Icons.add,
                             size: 30,
                           ),
@@ -123,7 +126,7 @@ class StartJobPage extends StatelessWidget {
                         buildRow('price: ', '300/-')
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -131,37 +134,37 @@ class StartJobPage extends StatelessWidget {
                         Expanded(
                             child: ElevatedButton(
                           onPressed: () {},
-                          child: Text('Call'),
                           style: ElevatedButton.styleFrom(
                               backgroundColor:
                                   Theme.of(context).colorScheme.primary,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
+                          child:const Text('Call'),
                         )),
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
                         Expanded(
                             child: ElevatedButton(
                           onPressed: () {},
-                          child: Text('Help'),
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF4DB6AC),
+                              backgroundColor:const Color(0xFF4DB6AC),
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
+                          child: const Text('Help'),
                         ))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text('Enter random number from user'),
+                   const  Text('Enter random number from user'),
                     Row(
                       children: [otp(), otp(), otp(), otp()],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
@@ -171,14 +174,14 @@ class StartJobPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(6),
                         color: Theme.of(context).colorScheme.primary,
                       ),
-                      child: Center(
+                      child:const  Center(
                         child: Text(
                           'Verify',
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ),
-                    SizedBox(
+                   const SizedBox(
                       height: 20,
                     ),
                     GestureDetector(
@@ -192,7 +195,7 @@ class StartJobPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(26)),
                           child: Row(
                             children: [
-                              SizedBox(
+                             const SizedBox(
                                 width: 6,
                               ),
                               Container(
@@ -214,10 +217,10 @@ class StartJobPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                             const SizedBox(
                                 width: 20,
                               ),
-                              Text(
+                             const Text(
                                 'Reached Drop',
                                 style: TextStyle(
                                     fontSize: 20,
@@ -243,7 +246,7 @@ class StartJobPage extends StatelessWidget {
 Widget buildRow(String label, String value, {Color? valueColor}) {
   return Row(
     children: [
-      SizedBox(
+      const SizedBox(
         width: 10,
       ),
       Text(
@@ -269,7 +272,7 @@ Widget otp() {
         height: 40,
         width: 40,
         color: Colors.white,
-        child: TextField(
+        child:const TextField(
           keyboardType: TextInputType.number,
           decoration: InputDecoration(border: OutlineInputBorder()),
         ),

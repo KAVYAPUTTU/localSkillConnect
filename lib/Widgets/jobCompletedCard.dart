@@ -56,7 +56,7 @@ class JobCompletedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Colors.grey.shade400),
@@ -190,7 +190,7 @@ class JobCompletedCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text(
+                        const Text(
                           'Rating - ',
                           style: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.w600),
@@ -207,11 +207,11 @@ class JobCompletedCard extends StatelessWidget {
                         ),
                         Text(
                           '($rating)',
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                          style: const TextStyle(fontSize: 12, color: Colors.grey),
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Text(

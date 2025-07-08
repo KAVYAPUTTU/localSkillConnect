@@ -35,7 +35,7 @@ class _InputFieldsState extends State<InputFields> {
         Card(
           elevation: 0,
           child: SizedBox(
-            width: 350,
+            width: double.infinity,
             child: TextField(
               controller: widget.controller,
               obscureText: widget.isPassword ? _obscureText : false,

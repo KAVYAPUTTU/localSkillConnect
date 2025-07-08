@@ -29,7 +29,7 @@ class Buttons extends StatelessWidget {
           }
         },
         child: Container(
-          width: 360,
+          width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),

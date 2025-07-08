@@ -27,8 +27,8 @@ class JobRejectedPage extends StatelessWidget {
           SizedBox(width: 20),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
+      body:const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
         child: Jobrejectedcard(
             userName: 'user name',
             location: 'City, District · distance(10km)',
@@ -37,7 +37,7 @@ class JobRejectedPage extends StatelessWidget {
             date: '06/06/25',
             points: 10,
             reason:
-                'Due to some other important work ,I can’t able \nto do this work.'),
+                'Due to some other important work ,I can’t able to do this work.'),
       ),
     );
   }

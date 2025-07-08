@@ -9,14 +9,14 @@ class DirectionsPage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.white,
         backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
+        actions: const [
+         Padding(
+            padding: EdgeInsets.all(10.0),
             child: Icon(Icons.help_outline,size: 30,),
           )
         ],
       ),
-      body: Container(
+      body: SizedBox(
               height: double.infinity,
               width: double.infinity,
               child: Image.asset(

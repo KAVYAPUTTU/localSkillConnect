@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:localskillconnect/Widgets/jobCompletedCard.dart';
 
 class JobCompletedPage extends StatelessWidget {
@@ -28,8 +27,8 @@ class JobCompletedPage extends StatelessWidget {
           SizedBox(width: 20),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
+      body:const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
         child: JobCompletedCard(
           userName: 'User name',
           location: 'City, District · distance(10km)',
