@@ -19,33 +19,33 @@ class ProfilePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                 child: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     CircleAvatar(
                       radius: 30,
                       backgroundColor: Colors.grey.shade200,
                       foregroundColor: Colors.white,
-                      child: Icon(
+                      child:const  Icon(
                         Icons.person,
                         size: 50,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                       const Text(
                           'John Doe',
                           style: TextStyle(
                               fontSize: 16,
@@ -61,7 +61,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Text(
+                           const Text(
                               '300 points',
                               style: TextStyle(
                                   fontSize: 13,
@@ -77,8 +77,8 @@ class ProfilePage extends StatelessWidget {
                         )
                       ],
                     ),
-                    Spacer(),
-                    Icon(
+                   const Spacer(),
+                   const Icon(
                       Icons.more_vert,
                       color: Colors.white,
                     ),
@@ -87,7 +87,7 @@ class ProfilePage extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration:const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50),
@@ -98,14 +98,14 @@ class ProfilePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                     const Text(
                         'Account Overview',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                             fontSize: 16),
                       ),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -114,11 +114,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
-                                  builder: (context) => MyprofilePage()),
+                                  builder: (context) => const MyprofilePage()),
                             );
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -127,11 +127,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
-                                  builder: (context) => MyservicesPage()),
+                                  builder: (context) =>const MyservicesPage()),
                             );
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -140,11 +140,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
-                                  builder: (context) => TotalsavingsPage()),
+                                  builder: (context) =>const TotalsavingsPage()),
                             );
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -153,11 +153,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
-                                  builder: (context) => FeedbackPage()),
+                                  builder: (context) =>const FeedbackPage()),
                             );
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -166,11 +166,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
-                                  builder: (context) => PointshistoryPage()),
+                                  builder: (context) =>const PointshistoryPage()),
                             );
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -179,11 +179,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
                                 .push(MaterialPageRoute(
-                              builder: (context) => ChangepasswordPage(),
+                              builder: (context) =>const ChangepasswordPage(),
                             ));
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -192,11 +192,11 @@ class ProfilePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
-                                  builder: (context) => ChangelanguagePage()),
+                                  builder: (context) =>const ChangelanguagePage()),
                             );
                           },
                           titlecolor: Colors.black),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -204,7 +204,7 @@ class ProfilePage extends StatelessWidget {
                           title: 'Rate this App',
                           onTap: () {},
                           titlecolor: Colors.black),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -212,7 +212,7 @@ class ProfilePage extends StatelessWidget {
                           title: 'Legal & Policies',
                           onTap: () {},
                           titlecolor: Colors.black),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -239,7 +239,7 @@ class ProfilePage extends StatelessWidget {
                         },
                         titlecolor: Colors.red,
                       ),
-                      SizedBox(
+                     const SizedBox(
                         height: 20,
                       ),
                       OptionCard(
@@ -298,9 +298,9 @@ class OptionCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap, // optional action
       child: Container(
-        width: 360,
+        width: double.infinity,
         height: 36,
-        decoration: BoxDecoration(
+        decoration:const BoxDecoration(
           color: Colors.white,
         ),
         child: Row(

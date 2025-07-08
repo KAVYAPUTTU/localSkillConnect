@@ -29,13 +29,16 @@ class ReferalPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                       Row(
+                        children: [
                         GestureDetector(
                           onTap: () => Navigator.pop(context),
                           child: const Icon(Icons.arrow_back,
                               size: 28, color: Colors.white),
                         ),
-                        const SizedBox(height: 10),
-                        const Text(
+                          Column(
+                            children: [
+                               const Text(
                           'Earn upto',
                           style: TextStyle(
                             color: Colors.black,
@@ -81,6 +84,10 @@ class ReferalPage extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
+                            ],
+                          )
+                        ],
+                       )
                       ],
                     ),
                   ),

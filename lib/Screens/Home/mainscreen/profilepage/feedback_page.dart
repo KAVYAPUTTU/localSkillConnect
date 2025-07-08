@@ -8,7 +8,7 @@ class FeedbackPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title:const Text(
           'Reviews & Feedback',
           style: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
@@ -17,29 +17,29 @@ class FeedbackPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+           const SizedBox(
               height: 10,
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.grey.shade200,
                   foregroundColor: Colors.white,
-                  child: Icon(
+                  child:const Icon(
                     Icons.person,
                     size: 50,
                   ),
                 ),
-                SizedBox(
+               const SizedBox(
                   width: 20,
                 ),
                 Column(
@@ -78,38 +78,38 @@ class FeedbackPage extends StatelessWidget {
                     )
                   ],
                 ),
-                Spacer(),
-                Icon(
+                const Spacer(),
+                const Icon(
                   Icons.more_vert,
                   color: Colors.white,
                 ),
               ],
             ),
-            SizedBox(
+           const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Reviews & Feedback',
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            FeedbackCard(
+            const FeedbackCard(
                 name: 'Ramesh',
                 rating: 3.5,
                 points: 3.5,
                 time: '2 Days ago',
                 review:
                     'Very professional, came on time and fixed my fan perfectly! Very professional, came on time and fixed my fan perfectly!'),
-            FeedbackCard(
+           const  FeedbackCard(
                 name: 'Ramesh',
                 rating: 3.5,
                 points: 3.5,
                 time: '2 Days ago',
                 review:
                     'Very professional, came on time and fixed my fan perfectly! Very professional, came on time and fixed my fan perfectly!'),
-            FeedbackCard(
+            const FeedbackCard(
                 name: 'Ramesh',
                 rating: 3.5,
                 points: 3.5,

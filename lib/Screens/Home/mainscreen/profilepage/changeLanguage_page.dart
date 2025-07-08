@@ -25,15 +25,15 @@ class _ChangelanguagePageState extends State<ChangelanguagePage> {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           Text('Select Language',style: TextStyle(
+          const Text('Select Language',style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600
            ),),
-           SizedBox(
+          const  SizedBox(
             height: 20,
            ),
           Column(

@@ -7,7 +7,7 @@ class PointshistoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title:const Text(
           'Points History',
           style: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
@@ -15,28 +15,28 @@ class PointshistoryPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            PointsCard(
-                imagePath: 'assets/img/pointsdeducted.png',
-                title: 'Points deduced',
-                subtitle: 'Due to your uncleanliness.Due to your uncleanliness',
-                points: '-\$5',
-                pointscolor: Colors.red),
-            SizedBox(
-              height: 20,
-            ),
-            PointsCard(
-                imagePath: 'assets/img/pointsadded.png',
-                title: 'Points Added',
-                subtitle: 'Due to your time sense.',
-                points: '+\$5',
-                pointscolor: Colors.green)
-          ],
+      body:const Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+          child: Column(
+            children: [
+              PointsCard(
+                  imagePath: 'assets/img/pointsdeducted.png',
+                  title: 'Points deduced',
+                  subtitle: 'Due to your uncleanliness.Due to your uncleanliness',
+                  points: '-\$5',
+                  pointscolor: Colors.red),
+              SizedBox(
+                height: 20,
+              ),
+              PointsCard(
+                  imagePath: 'assets/img/pointsadded.png',
+                  title: 'Points Added',
+                  subtitle: 'Due to your time sense.',
+                  points: '+\$5',
+                  pointscolor: Colors.green)
+            ],
+          ),
         ),
       ),
     );
@@ -60,7 +60,7 @@ class PointsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 335,
+      width: double.infinity,
       height: 55,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -71,7 +71,7 @@ class PointsCard extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(imagePath),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -80,18 +80,18 @@ class PointsCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+                  style:const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   subtitle,
-                  style: TextStyle(
+                  style:const TextStyle(
                       fontSize: 8,
                       fontWeight: FontWeight.w400,
                       color: Colors.grey),
                 )
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               points,
               style: TextStyle(

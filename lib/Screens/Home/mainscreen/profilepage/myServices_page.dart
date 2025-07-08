@@ -1,5 +1,5 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:localskillconnect/Screens/Home/mainscreen/main_screen.dart';
 import 'package:localskillconnect/Widgets/buttons.dart';
 
 class MyservicesPage extends StatefulWidget {
@@ -22,7 +22,7 @@ class _SubServiceSetupState extends State<MyservicesPage> {
     return Scaffold(
       backgroundColor: Colors.white,
        appBar: AppBar(
-        title: Text(
+        title:const Text(
           'My Services',
           style: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
@@ -31,7 +31,7 @@ class _SubServiceSetupState extends State<MyservicesPage> {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 25, right: 25),
+        padding:const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -267,7 +267,7 @@ class OthersServiceCard extends StatelessWidget {
               activeColor: Theme.of(context).colorScheme.primary,
               checkColor: Colors.white,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             SizedBox(
@@ -286,7 +286,7 @@ class OthersServiceCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+           const SizedBox(
               width: 20,
             ),
             if (showPriceField)

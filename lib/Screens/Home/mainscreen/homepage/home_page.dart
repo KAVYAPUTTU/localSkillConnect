@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/homepage/referal_page.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/homepage/requests_page.dart';
 import 'package:localskillconnect/Widgets/requests.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:flutter/material.dart' hide CarouselController;
-import 'package:carousel_slider/carousel_controller.dart' as carousel;
+// import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+// import 'package:flutter/material.dart' hide CarouselController;
+// import 'package:carousel_slider/carousel_controller.dart' as carousel;
 
 
 class HomePage extends StatefulWidget {
@@ -16,13 +16,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List imglist = [
-    {"id": 1, "image_path": 'assets/img/carouselimg.jpg'},
-    {"id": 2, "image_path": 'assets/img/carouselimg.jpg'},
-    {"id": 3, "image_path": 'assets/img/carouselimg.jpg'}
-  ];
-  final carousel.CarouselController carouselController = carousel.CarouselController();
-  int currentIndex = 0;
+  // final List imglist = [
+  //   {"id": 1, "image_path": 'assets/img/carouselimg.jpg'},
+  //   {"id": 2, "image_path": 'assets/img/carouselimg.jpg'},
+  //   {"id": 3, "image_path": 'assets/img/carouselimg.jpg'}
+  // ];
+  // final carousel.CarouselController carouselController = carousel.CarouselController();
+  // int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -75,263 +75,263 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                InkWell(
-                  child: CarouselSlider(
-                    carouselController: carouselController,
-                    items: imglist
-                        .map((item) => Image.asset(
-                              item['image_path'],
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                            ))
-                        .toList(),
-                    options: CarouselOptions(
-                      scrollPhysics: const BouncingScrollPhysics(),
-                      autoPlay: true,
-                      aspectRatio: 2,
-                      viewportFraction: 1,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          currentIndex = index;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                AnimatedSmoothIndicator(
-                  activeIndex: currentIndex,
-                  count: imglist.length,
-                  effect: const ExpandingDotsEffect(
-                    dotHeight: 8,
-                    dotWidth: 8,
-                    activeDotColor: Colors.deepPurple,
-                    dotColor: Colors.grey,
-                  ),
-                  onDotClicked: (index) {
-                    carouselController.animateToPage(
-                      index,
-                      duration:const Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Column(
-                  children: [
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Cards(
-                          colorname: Color(0xFF43A047),
-                          imgname: 'assets/img/earnings.png',
-                          title: '\$450',
-                          subtitle: 'Earnings',
-                          textcolor: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 40,
-                        ),
-                        Cards(
-                          colorname: Colors.red,
-                          imgname: 'assets/img/lostjobs.png',
-                          title: '5',
-                          subtitle: 'Lost Jobs',
-                          textcolor: Colors.white,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Cards(
-                            colorname: Colors.yellow,
-                            imgname: 'assets/img/rate.png',
-                            title: '4.8',
-                            subtitle: 'Ratings',
-                            textcolor: Colors.black),
-                        const SizedBox(
-                          width: 40,
-                        ),
-                        Cards(
-                            colorname: Theme.of(context).colorScheme.primary,
-                            imgname: 'assets/img/lostjobs2.png',
-                            title: '5',
-                            subtitle: 'Lost Jobs',
-                            textcolor: Colors.black)
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  'Latest Requests',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                RequestCard(
-                  username: 'User name',
-                  location: 'city, district · distance(10km)',
-                  time: '00:40',
-                  service: 'Fan installation',
-                  price: '300/-',
-                  urgencyLabel: 'Immediate',
-                  urgencyColor: Colors.red,
-                  onAccept: () {},
-                  backgroundColor: Colors.red.shade200,
-                  iconcolor: Colors.white,
-                  locationcolor: Colors.white,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                GestureDetector(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>const RequestsPage())),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'View More',
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: Theme.of(context).colorScheme.primary),
-                      ),
-                      Icon(
-                        Icons.keyboard_double_arrow_down,
-                        size: 13,
-                        color: Theme.of(context).colorScheme.primary,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Cards2(
-                            imgname: 'assets/img/services.png',
-                            title: 'My Services'),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Cards2(
-                            imgname: 'assets/img/savings.png',
-                            title: 'Total Savings'),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Cards2(
-                            imgname: 'assets/img/points.png',
-                            title: 'Points History'),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Cards2(
-                            imgname: 'assets/img/reviews.png',
-                            title: 'Reviews & Feedback'),
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                GestureDetector(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>const ReferalPage())),
-                  child: Container(
-                    height: 70,
-                    width: 350,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.deepPurpleAccent),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        const ArrowCard(),
-                        const SizedBox(
-                          width: 30,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Earn upto',
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                           const Text(
-                              '\$ 500',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.purple,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              'for every referral',
-                              style: TextStyle(
-                                  fontSize: 10,
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                  fontWeight: FontWeight.w600),
-                            )
-                          ],
-                        ),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Transform.rotate(
-                            angle: 0.5,
-                            child: SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: Image.asset('assets/img/referal.png'),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+      // body: SafeArea(
+      //   child: SingleChildScrollView(
+      //     child: Padding(
+      //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      //       child: Column(
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: [
+      //           // InkWell(
+      //           //   child: CarouselSlider(
+      //           //     carouselController: carouselController,
+      //           //     items: imglist
+      //           //         .map((item) => Image.asset(
+      //           //               item['image_path'],
+      //           //               fit: BoxFit.cover,
+      //           //               width: double.infinity,
+      //           //             ))
+      //           //         .toList(),
+      //           //     options: CarouselOptions(
+      //           //       scrollPhysics: const BouncingScrollPhysics(),
+      //           //       autoPlay: true,
+      //           //       aspectRatio: 2,
+      //           //       viewportFraction: 1,
+      //           //       onPageChanged: (index, reason) {
+      //           //         setState(() {
+      //           //           currentIndex = index;
+      //           //         });
+      //           //       },
+      //           //     ),
+      //           //   ),
+      //           // ),
+      //           // AnimatedSmoothIndicator(
+      //           //   activeIndex: currentIndex,
+      //           //   count: imglist.length,
+      //           //   effect: const ExpandingDotsEffect(
+      //           //     dotHeight: 8,
+      //           //     dotWidth: 8,
+      //           //     activeDotColor: Colors.deepPurple,
+      //           //     dotColor: Colors.grey,
+      //           //   ),
+      //           //   onDotClicked: (index) {
+      //           //     carouselController.animateToPage(
+      //           //       index,
+      //           //       duration:const Duration(milliseconds: 500),
+      //           //       curve: Curves.easeInOut,
+      //           //     );
+      //           //   },
+      //           // ),
+      //           const SizedBox(
+      //             height: 20,
+      //           ),
+      //           Column(
+      //             children: [
+      //               const Row(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: [
+      //                   Cards(
+      //                     colorname: Color(0xFF43A047),
+      //                     imgname: 'assets/img/earnings.png',
+      //                     title: '\$450',
+      //                     subtitle: 'Earnings',
+      //                     textcolor: Colors.white,
+      //                   ),
+      //                   SizedBox(
+      //                     width: 40,
+      //                   ),
+      //                   Cards(
+      //                     colorname: Colors.red,
+      //                     imgname: 'assets/img/lostjobs.png',
+      //                     title: '5',
+      //                     subtitle: 'Lost Jobs',
+      //                     textcolor: Colors.white,
+      //                   ),
+      //                 ],
+      //               ),
+      //               const SizedBox(
+      //                 height: 20,
+      //               ),
+      //               Row(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: [
+      //                   const Cards(
+      //                       colorname: Colors.yellow,
+      //                       imgname: 'assets/img/rate.png',
+      //                       title: '4.8',
+      //                       subtitle: 'Ratings',
+      //                       textcolor: Colors.black),
+      //                   const SizedBox(
+      //                     width: 40,
+      //                   ),
+      //                   Cards(
+      //                       colorname: Theme.of(context).colorScheme.primary,
+      //                       imgname: 'assets/img/lostjobs2.png',
+      //                       title: '5',
+      //                       subtitle: 'Lost Jobs',
+      //                       textcolor: Colors.black)
+      //                 ],
+      //               )
+      //             ],
+      //           ),
+      //           const SizedBox(
+      //             height: 20,
+      //           ),
+      //           const Text(
+      //             'Latest Requests',
+      //             style: TextStyle(
+      //                 color: Colors.black,
+      //                 fontSize: 20,
+      //                 fontWeight: FontWeight.w600),
+      //           ),
+      //           const SizedBox(
+      //             height: 20,
+      //           ),
+      //           RequestCard(
+      //             username: 'User name',
+      //             location: 'city, district · distance(10km)',
+      //             time: '00:40',
+      //             service: 'Fan installation',
+      //             price: '300/-',
+      //             urgencyLabel: 'Immediate',
+      //             urgencyColor: Colors.red,
+      //             onAccept: () {},
+      //             backgroundColor: Colors.red.shade200,
+      //             iconcolor: Colors.white,
+      //             locationcolor: Colors.white,
+      //           ),
+      //           const SizedBox(
+      //             height: 10,
+      //           ),
+      //           GestureDetector(
+      //             onTap: () => Navigator.push(context,
+      //                 MaterialPageRoute(builder: (context) =>const RequestsPage())),
+      //             child: Row(
+      //               mainAxisAlignment: MainAxisAlignment.center,
+      //               children: [
+      //                 Text(
+      //                   'View More',
+      //                   style: TextStyle(
+      //                       fontSize: 13,
+      //                       fontWeight: FontWeight.w600,
+      //                       color: Theme.of(context).colorScheme.primary),
+      //                 ),
+      //                 Icon(
+      //                   Icons.keyboard_double_arrow_down,
+      //                   size: 13,
+      //                   color: Theme.of(context).colorScheme.primary,
+      //                 )
+      //               ],
+      //             ),
+      //           ),
+      //           const SizedBox(
+      //             height: 20,
+      //           ),
+      //           const Column(
+      //             children: [
+      //               Row(
+      //                 crossAxisAlignment: CrossAxisAlignment.center,
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: [
+      //                   Cards2(
+      //                       imgname: 'assets/img/services.png',
+      //                       title: 'My Services'),
+      //                   SizedBox(
+      //                     width: 30,
+      //                   ),
+      //                   Cards2(
+      //                       imgname: 'assets/img/savings.png',
+      //                       title: 'Total Savings'),
+      //                 ],
+      //               ),
+      //               SizedBox(
+      //                 height: 20,
+      //               ),
+      //               Row(
+      //                 crossAxisAlignment: CrossAxisAlignment.center,
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: [
+      //                   Cards2(
+      //                       imgname: 'assets/img/points.png',
+      //                       title: 'Points History'),
+      //                   SizedBox(
+      //                     width: 30,
+      //                   ),
+      //                   Cards2(
+      //                       imgname: 'assets/img/reviews.png',
+      //                       title: 'Reviews & Feedback'),
+      //                 ],
+      //               )
+      //             ],
+      //           ),
+      //           const SizedBox(
+      //             height: 30,
+      //           ),
+      //           GestureDetector(
+      //             onTap: () => Navigator.push(context,
+      //                 MaterialPageRoute(builder: (context) =>const ReferalPage())),
+      //             child: Container(
+      //               height: 70,
+      //               width: 350,
+      //               decoration: BoxDecoration(
+      //                   color: Colors.white,
+      //                   border: Border.all(color: Colors.deepPurpleAccent),
+      //                   borderRadius: BorderRadius.circular(10)),
+      //               child: Row(
+      //                 children: [
+      //                   const ArrowCard(),
+      //                   const SizedBox(
+      //                     width: 30,
+      //                   ),
+      //                   Column(
+      //                     mainAxisAlignment: MainAxisAlignment.center,
+      //                     crossAxisAlignment: CrossAxisAlignment.center,
+      //                     children: [
+      //                       Text(
+      //                         'Earn upto',
+      //                         style: TextStyle(
+      //                             fontSize: 13,
+      //                             color:
+      //                                 Theme.of(context).colorScheme.secondary,
+      //                             fontWeight: FontWeight.w600),
+      //                       ),
+      //                      const Text(
+      //                         '\$ 500',
+      //                         style: TextStyle(
+      //                             fontSize: 15,
+      //                             color: Colors.purple,
+      //                             fontWeight: FontWeight.w600),
+      //                       ),
+      //                       Text(
+      //                         'for every referral',
+      //                         style: TextStyle(
+      //                             fontSize: 10,
+      //                             color:
+      //                                 Theme.of(context).colorScheme.secondary,
+      //                             fontWeight: FontWeight.w600),
+      //                       )
+      //                     ],
+      //                   ),
+      //                   Align(
+      //                     alignment: Alignment.topRight,
+      //                     child: Transform.rotate(
+      //                       angle: 0.5,
+      //                       child: SizedBox(
+      //                         height: 50,
+      //                         width: 50,
+      //                         child: Image.asset('assets/img/referal.png'),
+      //                       ),
+      //                     ),
+      //                   )
+      //                 ],
+      //               ),
+      //             ),
+      //           )
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

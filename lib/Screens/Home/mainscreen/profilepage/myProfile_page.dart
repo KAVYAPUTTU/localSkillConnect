@@ -40,7 +40,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title:const Text(
           'My Profile',
           style: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
@@ -51,12 +51,12 @@ class _MyprofilePageState extends State<MyprofilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+               const SizedBox(
                   height: 10,
                 ),
                 Center(
@@ -64,19 +64,19 @@ class _MyprofilePageState extends State<MyprofilePage> {
                     radius: 35,
                     backgroundColor: Colors.grey.shade300,
                     foregroundColor: Colors.white,
-                    child: Icon(
+                    child:const Icon(
                       Icons.person,
                       size: 60,
                     ),
                   ),
                 ),
-                Center(
+               const Center(
                   child: Text(
                     'Add Picture',
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
@@ -87,7 +87,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.secondary)),
                 ),
-                SizedBox(
+               const SizedBox(
                   height: 10,
                 ),
                 DropdownButtonFormField(
@@ -99,9 +99,9 @@ class _MyprofilePageState extends State<MyprofilePage> {
                       fontWeight: FontWeight.w600,
                       color: Theme.of(context).colorScheme.secondary,
                     ),
-                    border: UnderlineInputBorder(),
+                    border:const UnderlineInputBorder(),
                   ),
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon:const Icon(Icons.keyboard_arrow_down),
                   items: categories.map((String category) {
                     return DropdownMenuItem<String>(
                       value: category,
@@ -122,7 +122,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
                     });
                   },
                 ),
-                 SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
@@ -139,7 +139,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.secondary)),
                 ),
-                 SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
@@ -155,7 +155,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.secondary)),
                 ),
-                 SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 DropdownButtonFormField(
@@ -167,9 +167,9 @@ class _MyprofilePageState extends State<MyprofilePage> {
                       fontWeight: FontWeight.w600,
                       color: Theme.of(context).colorScheme.secondary,
                     ),
-                    border: UnderlineInputBorder(),
+                    border:const UnderlineInputBorder(),
                   ),
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon:const Icon(Icons.keyboard_arrow_down),
                   items: gender.map((String gen) {
                     return DropdownMenuItem<String>(
                       value: gen,
@@ -190,7 +190,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
                     });
                   },
                 ),
-                 SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextFormField(
@@ -210,11 +210,11 @@ class _MyprofilePageState extends State<MyprofilePage> {
                       fontSize: 12,
                     ),
                     suffixIcon:
-                        Icon(Icons.calendar_month_outlined, color: Colors.grey),
+                      const  Icon(Icons.calendar_month_outlined, color: Colors.grey),
                   
                   ),
                 ),
-                 SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
@@ -225,7 +225,7 @@ class _MyprofilePageState extends State<MyprofilePage> {
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.secondary)),
                 ),
-                 SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
@@ -236,10 +236,10 @@ class _MyprofilePageState extends State<MyprofilePage> {
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.secondary)),
                 ),
-                SizedBox(
+               const SizedBox(
                   height: 30,
                 ),
-                Center(child: Buttons(hintText: 'Save'))
+               const Center(child: Buttons(hintText: 'Save'))
               ],
             ),
           ),
