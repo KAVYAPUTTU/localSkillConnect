@@ -1,16 +1,28 @@
-import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/homepage/referal_page.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/homepage/requests_page.dart';
 import 'package:localskillconnect/Widgets/requests.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter/material.dart' hide CarouselController;
+import 'package:carousel_slider/carousel_controller.dart' as carousel;
 
-class HomePage extends StatelessWidget {
-  final List<String> imglist = [
-    'assets/img/carouselimg.jpg',
-    'assets/img/carouselimg.jpg',
-    'assets/img/carouselimg.jpg'
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List imglist = [
+    {"id": 1, "image_path": 'assets/img/carouselimg.jpg'},
+    {"id": 2, "image_path": 'assets/img/carouselimg.jpg'},
+    {"id": 3, "image_path": 'assets/img/carouselimg.jpg'}
   ];
-  HomePage({super.key});
+  final carousel.CarouselController carouselController = carousel.CarouselController();
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -66,29 +78,52 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: SizedBox(
-                    height: 200,
-                    width: 370,
-                    child: AnotherCarousel(
-                      images: imglist
-                          .map((imgPath) =>
-                              Image.asset(imgPath, fit: BoxFit.contain))
-                          .toList(),
-                      dotSize: 4,
-                      dotSpacing: 15,
-                      dotIncreasedColor: Colors.black,
-                      dotColor: Colors.grey,
-                      indicatorBgPadding: 30,
-                      dotBgColor: const Color.fromARGB(0, 255, 255, 255),
-                      dotPosition: DotPosition.bottomCenter,
-                      autoplay: true,
+                InkWell(
+                  child: CarouselSlider(
+                    carouselController: carouselController,
+                    items: imglist
+                        .map((item) => Image.asset(
+                              item['image_path'],
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ))
+                        .toList(),
+                    options: CarouselOptions(
+                      scrollPhysics: const BouncingScrollPhysics(),
+                      autoPlay: true,
+                      aspectRatio: 2,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      },
                     ),
                   ),
+                ),
+                AnimatedSmoothIndicator(
+                  activeIndex: currentIndex,
+                  count: imglist.length,
+                  effect: const ExpandingDotsEffect(
+                    dotHeight: 8,
+                    dotWidth: 8,
+                    activeDotColor: Colors.deepPurple,
+                    dotColor: Colors.grey,
+                  ),
+                  onDotClicked: (index) {
+                    carouselController.animateToPage(
+                      index,
+                      duration:const Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Column(
                   children: [
@@ -114,19 +149,19 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Cards(
+                        const Cards(
                             colorname: Colors.yellow,
                             imgname: 'assets/img/rate.png',
                             title: '4.8',
                             subtitle: 'Ratings',
                             textcolor: Colors.black),
-                        SizedBox(
+                        const SizedBox(
                           width: 40,
                         ),
                         Cards(
@@ -139,17 +174,17 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Text(
+                const Text(
                   'Latest Requests',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 RequestCard(
@@ -165,12 +200,12 @@ class HomePage extends StatelessWidget {
                   iconcolor: Colors.white,
                   locationcolor: Colors.white,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 GestureDetector(
                   onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RequestsPage())),
+                      MaterialPageRoute(builder: (context) =>const RequestsPage())),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -189,7 +224,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const Column(
@@ -229,12 +264,12 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 GestureDetector(
                   onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ReferalPage())),
+                      MaterialPageRoute(builder: (context) =>const ReferalPage())),
                   child: Container(
                     height: 70,
                     width: 350,
@@ -244,8 +279,8 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     child: Row(
                       children: [
-                        ArrowCard(),
-                        SizedBox(
+                        const ArrowCard(),
+                        const SizedBox(
                           width: 30,
                         ),
                         Column(
@@ -260,7 +295,7 @@ class HomePage extends StatelessWidget {
                                       Theme.of(context).colorScheme.secondary,
                                   fontWeight: FontWeight.w600),
                             ),
-                            Text(
+                           const Text(
                               '\$ 500',
                               style: TextStyle(
                                   fontSize: 15,
@@ -281,7 +316,7 @@ class HomePage extends StatelessWidget {
                           alignment: Alignment.topRight,
                           child: Transform.rotate(
                             angle: 0.5,
-                            child: Container(
+                            child: SizedBox(
                               height: 50,
                               width: 50,
                               child: Image.asset('assets/img/referal.png'),
@@ -326,7 +361,7 @@ class Cards extends StatelessWidget {
       ),
       child: Container(
         height: 70,
-        width: 150,
+        width: double.infinity,
         decoration: BoxDecoration(
           color: colorname,
           borderRadius: BorderRadius.circular(6),
@@ -352,7 +387,7 @@ class Cards extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Column(
@@ -390,7 +425,7 @@ class Cards2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
+      width: double.infinity,
       height: 96,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -401,12 +436,12 @@ class Cards2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(imgname),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            style:const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
           )
         ],
       ),
@@ -425,7 +460,7 @@ class ArrowCard extends StatelessWidget {
         height: 70,
         width: 180,
         decoration: BoxDecoration(
-            color: Color.fromARGB(80, 139, 95, 252),
+            color:const Color.fromARGB(80, 139, 95, 252),
             borderRadius: BorderRadius.circular(10)),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: const Column(

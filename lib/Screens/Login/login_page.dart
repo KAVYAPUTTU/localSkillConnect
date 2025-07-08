@@ -59,13 +59,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 25, right: 25),
+              padding:  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   const Text(
                     'Login',
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   const Text(
                     'Name',
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const InputFields(icon: Icon(Icons.person), hinttext: 'Name'),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   const Text(
                     'Password',
@@ -114,9 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-                  Center(
+                  Align(
+                    alignment: Alignment.centerRight,
                     child: Text(
                       'Forgot Password',
                       style: TextStyle(
@@ -127,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Buttons(hintText: 'Login',onTap: handleLogin,),
                   Center(

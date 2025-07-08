@@ -30,7 +30,7 @@ class RequestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 140,
-      width: 350,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/FrontScreen/splash_screen1.dart';
+import 'package:localskillconnect/Screens/FrontScreen/splash_screen2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home:SplashScreen1() ,
+     home:SplashScreen2() ,
      debugShowCheckedModeBanner: false,
      theme: ThemeData(
       colorScheme: ColorScheme.fromSeed(
