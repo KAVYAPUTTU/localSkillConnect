@@ -26,7 +26,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -56,7 +56,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
                     },
                   ),
                 ),
-                const Text('Bank Account Number'),
+                const Text('Bank Account Number',),
                 const SizedBox(width: 10),
                 Transform.scale(
                   scale: 0.8,
@@ -77,11 +77,12 @@ class _WithdrawPageState extends State<WithdrawPage> {
             const SizedBox(height: 10),
 
             // Input Field for Account or UPI
-            TextField(
+            const TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText:'Enter your Bank Account Number',
-                border: const OutlineInputBorder(),
+                labelStyle: TextStyle(fontSize: 14,color: Colors.grey),
+                border: OutlineInputBorder(),
               ),
             ),
 
@@ -96,12 +97,13 @@ class _WithdrawPageState extends State<WithdrawPage> {
               ),
             ),
             const SizedBox(height: 10),
-            TextField(
+           const  TextField(
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixText: '\$ ',
                 border: OutlineInputBorder(),
                 hintText: '500',
+                hintStyle: TextStyle(fontSize: 14,color: Colors.grey),
               ),
             ),
 

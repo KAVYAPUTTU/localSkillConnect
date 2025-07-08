@@ -28,7 +28,7 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               const Text('Sub Service Setup',
@@ -37,7 +37,7 @@ class _SubServiceSetupState extends State<SubServiceSetup> {
                     fontWeight: FontWeight.w700,
                     color: Colors.black,
                   )),
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
               Text(

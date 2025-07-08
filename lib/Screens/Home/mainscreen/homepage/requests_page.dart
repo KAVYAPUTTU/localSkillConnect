@@ -14,7 +14,7 @@ class RequestsPage extends StatelessWidget {
           elevation: 2,
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: const Padding(
-            padding: EdgeInsets.only(left: 10.0, top: 10),
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -60,7 +60,7 @@ class RequestsPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               RequestCard(
@@ -77,7 +77,7 @@ class RequestsPage extends StatelessWidget {
                   backgroundColor: Colors.white,
                   iconcolor: Theme.of(context).colorScheme.secondary,
                   locationcolor: Theme.of(context).colorScheme.secondary),
-              SizedBox(
+             const SizedBox(
                 height: 30,
               ),
               RequestCard(

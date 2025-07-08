@@ -45,7 +45,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   fontWeight: FontWeight.w700,
                   color: Theme.of(context).colorScheme.secondary),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             SizedBox(

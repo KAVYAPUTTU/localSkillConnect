@@ -14,19 +14,20 @@ class _SplashScreen2State extends State<SplashScreen2> {
     super.initState();
 
     // Delay for 3 seconds and then navigate
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => SelectLanguage()),
+        MaterialPageRoute(builder: (context) =>const SelectLanguage()),
       );
     });
   }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
               height: 330,
               width: 400,
               child: Column(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:localskillconnect/Screens/Home/mainscreen/walletpage/withdraw_page.dart';
-import 'package:localskillconnect/Widgets/buttons.dart';
 import 'package:localskillconnect/Widgets/buttons2.dart';
 
 class WalletPage extends StatefulWidget {
@@ -11,7 +10,7 @@ class WalletPage extends StatefulWidget {
 }
 
 class _WalletPageState extends State<WalletPage> {
-  double Balance = 500;
+  double balance = 500;
   double slidervalue = 250;
 
   @override
@@ -19,7 +18,7 @@ class _WalletPageState extends State<WalletPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title:const Text(
           'Wallet',
           style: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
@@ -30,14 +29,14 @@ class _WalletPageState extends State<WalletPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: Container(
-                    width: 320,
+                    width: double.infinity,
                     height: 180,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -50,13 +49,13 @@ class _WalletPageState extends State<WalletPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Total Balance',
+                          const Text(
+                            'Total balance',
                             style: TextStyle(fontWeight: FontWeight.w600),
                           ),
                           Center(
                             child: Text(
-                              '\$ ${Balance.toStringAsFixed(0)}',
+                              '\$ ${balance.toStringAsFixed(0)}',
                               style: const TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
@@ -73,9 +72,9 @@ class _WalletPageState extends State<WalletPage> {
                               });
                             },
                             min: 0,
-                            max: Balance,
+                            max: balance,
                           ),
-                          Center(
+                          const Center(
                               child: Buttons2(
                             hintText: 'withdraw',
                             height: 27,
@@ -87,34 +86,34 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+               const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'History',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        const  EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       fillColor: Colors.white,
                       filled: true,
                       hintText: 'Search',
-                      hintStyle: TextStyle(color: Colors.grey),
-                      suffixIcon: Icon(Icons.mic),
+                      hintStyle:const TextStyle(color: Colors.grey),
+                      suffixIcon:const Icon(Icons.mic),
                       prefixIconColor: Theme.of(context).colorScheme.secondary,
                       suffixIconColor: Theme.of(context).colorScheme.secondary,
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon:const  Icon(Icons.search),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                           borderSide:
                               BorderSide(color: Colors.grey.shade200, width: 1))),
                 ),
-                SizedBox(
+               const  SizedBox(
                   height: 20,
                 ),
                 Center(
@@ -122,26 +121,26 @@ class _WalletPageState extends State<WalletPage> {
                     children: [
                       GestureDetector(
                          onTap: () => showReceiptBottomSheet(context),
-                        child: PointsCard(
+                        child:const PointsCard(
                         imagePath: 'assets/img/green.png',
                         title: 'Fan Installation',
                         subtitle: 'User ID : 12345678987654',
                         points: '+\$20',
                         pointscolor: Colors.green),
                       ),
-                      SizedBox(
+                    const  SizedBox(
                         height: 10,
                       ),
-                  PointsCard(
+                  const PointsCard(
                       imagePath: 'assets/img/green.png',
                       title: 'Fan Installation',
                       subtitle: 'User ID : 12345678987654',
                       points: '+\$20',
                       pointscolor: Colors.green),
-                      SizedBox(
+                     const SizedBox(
                         height: 10,
                       ),
-                  PointsCard(
+                  const PointsCard(
                       imagePath: 'assets/img/red.png',
                       title: 'UPI ID : 34371435479',
                       subtitle: 'Bank transfer',
@@ -176,7 +175,7 @@ class PointsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
+      width: double.infinity,
       height: 65,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -187,7 +186,7 @@ class PointsCard extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(imagePath),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -196,18 +195,18 @@ class PointsCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  style:const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   subtitle,
-                  style: TextStyle(
+                  style:const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w400,
                       color: Colors.grey),
                 )
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Column(
               children: [
                 Text(
@@ -217,7 +216,7 @@ class PointsCard extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       color: pointscolor),
                 ),
-                Text(
+                const Text(
                   '06/06/25',
                   style: TextStyle(fontSize: 10, color: Colors.grey),
                 )
@@ -235,23 +234,23 @@ void showReceiptBottomSheet(BuildContext context) {
     backgroundColor: Colors.white,
     context: context,
     isScrollControlled: true,
-    shape: RoundedRectangleBorder(
+    shape:const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
     builder: (context) {
       return Padding(
         padding: const EdgeInsets.all(20),
-        child: Container(
+        child: SizedBox(
           height: 350,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
                 onTap: () => Navigator.of(context).pop(),
-                child: Icon(Icons.close, color: Colors.red),
+                child: const Icon(Icons.close, color: Colors.red),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Received',
                 style: TextStyle(
                   fontSize: 16,
@@ -259,7 +258,7 @@ void showReceiptBottomSheet(BuildContext context) {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20),
+             const  SizedBox(height: 20),
              Row(
               children: [
                 Column(
@@ -274,8 +273,8 @@ void showReceiptBottomSheet(BuildContext context) {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              SizedBox(height: 4),
-              Text(
+              const SizedBox(height: 4),
+              const Text(
                 'User ID : 12345678987654',
                 style: TextStyle(
                   fontSize: 14,
@@ -284,8 +283,8 @@ void showReceiptBottomSheet(BuildContext context) {
               ),
               ],
              ),
-             Spacer(),
-              Column(
+             const Spacer(),
+             const Column(
                 children: [
                     Text(
                 '+\$ 20',
@@ -306,10 +305,10 @@ void showReceiptBottomSheet(BuildContext context) {
               )
               ],
              ),
-              SizedBox(height: 10),
+             const SizedBox(height: 10),
             
-              SizedBox(height: 20),
-             Center(child: Buttons2(hintText: 'Share Receipt', height: 40, width: 300))
+             const SizedBox(height: 20),
+             const Center(child: Buttons2(hintText: 'Share Receipt', height: 40, width: 300))
             ],
           ),
         ),

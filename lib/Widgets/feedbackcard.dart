@@ -17,7 +17,7 @@ class FeedbackCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 95,
       width: double.infinity,
       child: Padding(
@@ -30,12 +30,12 @@ class FeedbackCard extends StatelessWidget {
                   radius: 20,
                   backgroundColor: Colors.grey.shade200,
                   foregroundColor: Colors.white,
-                  child: Icon(
+                  child:const Icon(
                     Icons.person,
                     size: 30,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Column(
@@ -45,7 +45,7 @@ class FeedbackCard extends StatelessWidget {
                     Text(
                       name,
                       style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                        const  TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                     ),
                     Row(
                       children: [
@@ -61,7 +61,7 @@ class FeedbackCard extends StatelessWidget {
                         ),
                         Text(
                           '($points)',
-                          style: TextStyle(
+                          style:const TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
                               fontWeight: FontWeight.w500),
@@ -70,19 +70,19 @@ class FeedbackCard extends StatelessWidget {
                     )
                   ],
                 ),
-                Spacer(),
+               const Spacer(),
                 Text(
                   time,
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  style:const TextStyle(fontSize: 12, color: Colors.grey),
                 )
               ],
             ),
-            SizedBox(
+           const SizedBox(
               height: 3,
             ),
             Text(
               review,
-              style: TextStyle(
+              style:const TextStyle(
                   fontSize: 10,
                   color: Colors.grey,
                   fontWeight: FontWeight.w400),

@@ -139,8 +139,8 @@ class ReferalPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 80),
-            Text('Your Referrals'),
-            SizedBox(
+           const Text('Your Referrals'),
+           const  SizedBox(
               height: 10,
             ),
             ReferralTile(
