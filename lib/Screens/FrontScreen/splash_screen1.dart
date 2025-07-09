@@ -19,6 +19,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
       );
     });
   }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,

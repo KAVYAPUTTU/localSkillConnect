@@ -15,7 +15,7 @@ class _MainscreenState extends State<Mainscreen> {
   int _selectedindex = 0;
 
   final List<Widget> _tabs = [
-    _buildTabNavigator(HomePage()),
+    _buildTabNavigator( HomePage()),
     _buildTabNavigator(const WalletPage()),
     _buildTabNavigator(const BookingsPage()),
     _buildTabNavigator(const ProfilePage()),

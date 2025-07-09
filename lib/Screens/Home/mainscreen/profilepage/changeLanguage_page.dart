@@ -39,7 +39,7 @@ class _ChangelanguagePageState extends State<ChangelanguagePage> {
           Column(
             children: [
               SizedBox(
-              width: 340,
+              width:double.infinity,
               child: RadioMenuButton(
                 value: 'english',
                 groupValue: selectedLanguage,
@@ -77,7 +77,7 @@ class _ChangelanguagePageState extends State<ChangelanguagePage> {
               height: 20,
             ),
             SizedBox(
-              width: 340,
+              width:double.infinity,
               child: RadioMenuButton(
                 value: 'telugu',
                 groupValue: selectedLanguage,
@@ -115,7 +115,7 @@ class _ChangelanguagePageState extends State<ChangelanguagePage> {
               height: 20,
             ),
             SizedBox(
-              width: 340,
+              width: double.infinity,
               child: RadioMenuButton(
                 value: 'hindi',
                 groupValue: selectedLanguage,

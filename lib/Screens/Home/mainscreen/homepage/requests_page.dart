@@ -10,8 +10,8 @@ class RequestsPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
-          automaticallyImplyLeading: false,
           elevation: 2,
+          foregroundColor: Colors.white,
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
